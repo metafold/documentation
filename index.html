@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Metafold Docs</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d00900ca-4b15-48dc-b9c1-d83e0c13ccdb" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Metafold%20Docs%20d00900ca4b1548dcb9c1d83e0c13ccdb/MF_logo_Sep2023_A_Outline.png"/></div><h1 class="page-title">Metafold Docs</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b0f7d587-8cc8-4b60-9854-f8c6a29c7ef6"><div style="font-size:1.5em"><span class="icon">📢</span></div><div style="width:100%">This documentation is an overview of the front-end of Metafold. If you’re looking for developer docs, they’re <a href="https://www.notion.so/LC-Usage-stats-google-analytics-f4a0a336d12f4c63aeecee642736cc3c?pvs=21">here</a>. <br/><br/><a href="https://airtable.com/appUxqORliSMLwxge/paguB7QuXRFkbnc2w/form">Submit tutorial / documentation / feature requests or a bug reports here.</a></div></figure><h1 id="75129bb2-1953-4972-8909-e53139168bf4" class="">Getting Started</h1><div id="a7f7c02f-feee-40b8-9527-1433ba08953a" class="column-list"><div id="3f3ae1ba-92f5-4c28-a3d8-861ab27aa2a0" style="width:50%" class="column"><figure id="21de54e8-2ddb-481d-b0fc-46a566921d56" class="link-to-page"><a href="https://www.notion.so/Hello-Lattice-21de54e82ddb481db0fc46a566921d56?pvs=21">Hello Lattice</a></figure></div><div id="1e3f694f-24c9-4b83-b5ab-0c1c01c6c5b1" style="width:50%" class="column"><p id="be9b37b0-db44-47c0-a9e5-11b6b5173042" class="">
+</p></div></div><hr id="af21ae73-21b2-4b22-9e65-46487ca2903a"/><h1 id="bcb4252e-7792-4153-88be-f1e2cabb6c35" class="">UI</h1><figure id="157ea829-2511-46b3-90f0-145ebfc08672" class="link-to-page"><a href="https://www.notion.so/Home-Projects-and-Community-157ea829251146b390f0145ebfc08672?pvs=21">Home, Projects, and Community</a></figure><figure id="fbfddd3f-359c-4106-9848-540294185e52" class="link-to-page"><a href="https://www.notion.so/Editor-overview-fbfddd3f359c41069848540294185e52?pvs=21">Editor overview</a></figure><hr id="d8b065fa-ed12-478f-9dca-2a6c82099cba"/><h1 id="63ff81a4-97ba-49bd-9c37-22f010b826c5" class="">Shapes and Presets</h1><div id="3dce8abf-c9d1-4348-a35d-71c9b87a3e77" class="column-list"><div id="54b0a4bf-b096-429b-bbb3-fa52f311dccb" style="width:50%" class="column"><h3 id="ebb36f80-4836-493f-a507-d6902424e9a8" class="">Primitives</h3><figure id="36402b31-bef6-4a75-a258-b897760f8248" class="link-to-page"><a href="https://www.notion.so/Mesh-36402b31bef64a75a258b897760f8248?pvs=21">Mesh</a></figure><figure id="306eed58-efd1-4d0f-beec-9a4ac3e85fb1" class="link-to-page"><a href="https://www.notion.so/Primitive-306eed58efd14d0fbeec9a4ac3e85fb1?pvs=21">Primitive</a></figure><h3 id="c241e3c2-7fbb-45af-a048-d7289d73d227" class="">Beam Lattices</h3><figure id="3409da66-dccb-46d5-9cc8-1c27603ea9f8" class="link-to-page"><a href="https://www.notion.so/Beam-Lattice-3409da66dccb46d59cc81c27603ea9f8?pvs=21">Beam Lattice</a></figure><figure id="17445aec-a22d-4b43-ac7a-a6a173928d10" class="link-to-page"><a href="https://www.notion.so/Beam-Lattice-Conformal-17445aeca22d4b43ac7aa6a173928d10?pvs=21">Beam Lattice (Conformal)</a></figure><figure id="81ddc305-c627-4d60-a1d9-e5bb6782c59c" class="link-to-page"><a href="https://www.notion.so/Beam-Lattice-Cell-Size-Grading-81ddc305c6274d60a1d9e5bb6782c59c?pvs=21">Beam Lattice (Cell Size Grading)</a></figure><figure id="3fbc2e64-7abb-48d8-99fb-096e254f1cd7" class="link-to-page"><a href="https://www.notion.so/Beam-Lattice-Cylindrical-3fbc2e647abb48d899fb096e254f1cd7?pvs=21">Beam Lattice (Cylindrical)</a></figure><figure id="2fe3b349-1251-42ff-86ef-656d390efb2b" class="link-to-page"><a href="https://www.notion.so/Beam-Lattice-Material-Grading-2fe3b349125142ff86ef656d390efb2b?pvs=21">Beam Lattice (Material Grading)</a></figure><figure id="a08cd65a-b85e-46b8-bb13-4d571c41358d" class="link-to-page"><a href="https://www.notion.so/Beam-Lattice-Spherical-a08cd65ab85e46b8bb134d571c41358d?pvs=21">Beam Lattice (Spherical)</a></figure></div><div id="8db91336-04c3-4dd0-af06-aac5840046e9" style="width:50%" class="column"><h3 id="74e4f9b7-9b68-4dce-a330-25226bc58b1a" class="">Surface Lattices</h3><figure id="1906df35-663b-477b-a8a9-7b49b33527ef" class="link-to-page"><a href="https://www.notion.so/Surface-Lattice-1906df35663b477ba8a97b49b33527ef?pvs=21">Surface Lattice</a></figure><figure id="f972e3e1-bd49-437b-a02e-92153435ff9e" class="link-to-page"><a href="https://www.notion.so/Surface-Lattice-Conformal-f972e3e1bd49437ba02e92153435ff9e?pvs=21">Surface Lattice (Conformal)</a></figure><figure id="f294ba3a-f314-4c6c-89c9-6912fa8ca553" class="link-to-page"><a href="https://www.notion.so/Surface-Lattice-Cell-Size-Grading-f294ba3af3144c6c89c96912fa8ca553?pvs=21">Surface Lattice (Cell Size Grading)</a></figure><figure id="c34a7dbb-964b-4170-ae3b-a870828be197" class="link-to-page"><a href="https://www.notion.so/Surface-Lattice-Cylindrical-c34a7dbb964b4170ae3ba870828be197?pvs=21">Surface Lattice (Cylindrical)</a></figure><figure id="8e10916d-c00c-4a1b-9299-23bbbc77788f" class="link-to-page"><a href="https://www.notion.so/Surface-Lattice-Material-Grading-8e10916dc00c4a1b929923bbbc77788f?pvs=21">Surface Lattice (Material Grading)</a></figure><figure id="aec10bef-48a6-4710-a176-8e1f54efd7ee" class="link-to-page"><a href="https://www.notion.so/Surface-Lattice-Spherical-aec10bef48a64710a1768e1f54efd7ee?pvs=21">Surface Lattice (Spherical)</a></figure></div></div><hr id="b91e85d6-4ed2-443d-a7e3-1564d12e9e4a"/><h1 id="5a1d91d4-18be-431b-abd1-23ab08048a53" class="">Filters</h1><div id="4ce4dd6b-2f8d-45e0-a198-92cc2eca4bde" class="column-list"><div id="2c60e7bc-ed4d-41f2-aaa6-68579d079da3" style="width:50%" class="column"><figure id="c83922d3-6f7f-499f-a638-417f10ad8958" class="link-to-page"><a href="https://www.notion.so/Redistance-c83922d36f7f499fa638417f10ad8958?pvs=21">Redistance</a></figure><figure id="478924ad-f486-4427-922c-36736a1ab3c1" class="link-to-page"><a href="https://www.notion.so/Shell-478924adf4864427922c36736a1ab3c1?pvs=21">Shell</a></figure></div><div id="b86d7fd8-fff7-4597-abfc-0441197fab59" style="width:50%" class="column"><p id="a4d413eb-313e-43a0-9114-dc2f226ec437" class="">
+</p></div></div><hr id="924a05dc-5aab-468b-8f26-9f4578eb35ed"/><h1 id="14fa2af3-780b-44ea-942f-e029d27c7ced" class="">Importing and Exporting</h1><div id="8f3d95ae-f3ca-4d4a-9479-ba0f9ba13498" class="column-list"><div id="64e0c504-ac2e-4735-b844-94fd0052136c" style="width:50%" class="column"><p id="acd17211-821a-4282-887e-aef39b68ca12" class="">
+</p></div><div id="75a8a1c5-39fe-495a-861c-9ce5567643a2" style="width:50%" class="column"><p id="e8877bcc-ed21-4824-8693-756007e819be" class="">
+</p></div></div><hr id="21ddb3df-e03e-435e-b763-8faba59c15ee"/><h1 id="f0fed55e-6944-41ae-a6d4-17f1e7b2bd0d" class="">Simulation</h1><div id="b8f5642d-4efa-4614-9cf9-f41c05743ff2" class="column-list"><div id="51afadcc-548a-474b-8897-08b521ff8e6b" style="width:50%" class="column"><p id="38f66f72-3d54-44cf-911b-7ce681534495" class="">
+</p></div><div id="69c317f5-5541-44d2-a308-4e794a0c3659" style="width:50%" class="column"><p id="e6ba7b4d-fddf-4bf9-8546-d7f00356abb9" class="">
+</p></div></div><hr id="319e77bf-f45d-47da-b862-2a8516fe7735"/><h1 id="28be3230-ca5f-410f-89b4-d587eb29353b" class="">Community and Sharing</h1><div id="00984da5-5eae-4b67-8482-9b234d92cf0b" class="column-list"><div id="aece907b-0ec2-465f-b205-e83a4d805d24" style="width:50%" class="column"><p id="b8bf71c4-ff48-488d-a9d4-afa14be48bb2" class="">
+</p></div><div id="45c7c460-83bf-44be-af72-12b5566e40c5" style="width:50%" class="column"><p id="30fef0cb-8355-4ebc-a5e4-556a2527211e" class="">
+</p></div></div><hr id="96501f5b-6c7f-4593-ace4-b58b21fe7a2a"/><h1 id="29861e40-5156-4db4-b32c-6ccbf7f5857f" class="">FAQ/ETC…</h1><p id="d1943092-725d-4a7e-97f0-4e37f78de1bc" class="">
+</p><p id="86ce587e-3311-4e3c-956f-9f5ccf96bafc" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
